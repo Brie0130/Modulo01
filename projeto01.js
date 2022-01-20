@@ -50,27 +50,3 @@ if (contagem == 0) {
 } else {
     console.log ('Parabéns! Graças aos seus esforços, a Aliança das Princesas conseguiu finalmente se livrar do mal que era a Horda. Hordak está preso e todos os reinos estão em festa! Esse dia será lembrado para sempre como o dia que o bem e a amizade triunfaram sobre o mal. ');
 }
-
-
-
-
-
-
-
-
-
-/*
-let sim = 'si' ;
-var bravo = 0;
-console.log(`Contador de Bravura: ${bravo}`);
-let perg1 = prompt('Você me desafiou ontem? ');
-if (perg1 == 'sim') {console.log(`Sim, você me desafiou`); 
-bravo = bravo + 1;}
-else {console.log(`Não, você não me desafiou`);}
-console.log(`Contador de Bravura: ${bravo}`);
-let perg2 = prompt('Você vai me desafiar amanhã? ');
-if (perg2 == 'sim') {console.log(`Sim, você vai`); 
-bravo = bravo + 1;}
-else {console.log(`Não, você não vai`);}
-console.log(`Contador de Bravura: ${bravo}`);
-*/
