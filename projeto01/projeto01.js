@@ -10,7 +10,7 @@ console.clear();
 
 console.log(`Olá, ${nome}! Você está em direção a uma invasão numa 
 tentativa de derrotar definitivamente a Horda. Responda as perguntas
-a seguir com sim ou não e vamos ver como essa invasão acabou.`);
+a seguir com sim ou nao e vamos ver como essa invasão acabou.`);
 console.log();
 
 
