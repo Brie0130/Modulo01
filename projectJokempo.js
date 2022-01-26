@@ -1,7 +1,7 @@
 const prompt = require("prompt-sync")();
 const jokempo = ["pedra", "pergaminho", "adaga"];
 
-let nome = prompt("Qual seu nome? ");
+let nome = prompt("Antes de iniciar nossa aventura, qual seu nome? ");
 
 console.clear();
 
@@ -31,7 +31,7 @@ if (ajuda == "sim") {
 }
 
 do {
-  if (inicio3 != "sim" && inicio3 != "s") {
+  if (inicio3 != "sim" || inicio3 != "s") {
     console.log();
     console.log(
       "Você decide não aceitar a estranha proposta do troll e se aventura mesmo sem suprimentos, enfrentando o destino duvidoso que o reserva"
@@ -50,75 +50,40 @@ do {
     let n_aleatorio = Math.floor(Math.random() * tamanho_array);
     //console.log(`${jokempo[n_aleatorio]}`);
 
-    if (jokempo[n_aleatorio] == "pergaminho" && usuario == "pergaminho") {
+    if (
+      (jokempo[n_aleatorio] == "pergaminho" && usuario == "pergaminho") ||
+      (jokempo[n_aleatorio] == "pedra" && usuario == "pedra") ||
+      (jokempo[n_aleatorio] == "adaga" && usuario == "adaga")
+    ) {
       console.log(`O troll escolheu: ${jokempo[n_aleatorio]}`);
       console.log("Essa rodada deu empate!");
       rodadas--;
       console.log();
     }
 
-    if (jokempo[n_aleatorio] == "pedra" && usuario == "pedra") {
+    if (
+      (jokempo[n_aleatorio] == "pergaminho" && usuario == "adaga") ||
+      (jokempo[n_aleatorio] == "pedra" && usuario == "pergaminho") ||
+      (jokempo[n_aleatorio] == "adaga" && usuario == "pedra")
+    ) {
       console.log(`O troll escolheu: ${jokempo[n_aleatorio]}`);
-      console.log("Essa rodada deu empate!");
-      rodadas--;
-      console.log();
-    }
-
-    if (jokempo[n_aleatorio] == "adaga" && usuario == "adaga") {
-      console.log(`O troll escolheu: ${jokempo[n_aleatorio]}`);
-      console.log("Essa rodada deu empate!");
-      rodadas--;
-      console.log();
-    }
-
-    if (jokempo[n_aleatorio] == "pergaminho" && usuario == "adaga") {
-      console.log(`O troll escolheu: ${jokempo[n_aleatorio]}`);
-      console.log(`O ${nome} venceu!`);
+      console.log(`${nome} venceu essa rodada.`);
       rodadas--;
       pontosusuario++;
       console.log();
     }
 
-    if (jokempo[n_aleatorio] == "pergaminho" && usuario == "pedra") {
+    if (
+      (jokempo[n_aleatorio] == "pergaminho" && usuario == "pedra") ||
+      (jokempo[n_aleatorio] == "pedra" && usuario == "adaga") ||
+      (jokempo[n_aleatorio] == "adaga" && usuario == "pergaminho")
+    ) {
       console.log(`O troll escolheu: ${jokempo[n_aleatorio]}`);
       console.log(`O troll venceu essa rodada.`);
       rodadas--;
       pontostroll++;
       console.log();
     }
-
-    if (jokempo[n_aleatorio] == "pedra" && usuario == "pergaminho") {
-      console.log(`O troll escolheu: ${jokempo[n_aleatorio]}`);
-      console.log(`O ${nome} venceu!`);
-      rodadas--;
-      pontosusuario++;
-      console.log();
-    }
-
-    if (jokempo[n_aleatorio] == "pedra" && usuario == "adaga") {
-      console.log(`O troll escolheu: ${jokempo[n_aleatorio]}`);
-      console.log(`O troll venceu essa rodada.`);
-      rodadas--;
-      pontostroll++;
-      console.log();
-    }
-
-    if (jokempo[n_aleatorio] == "adaga" && usuario == "pedra") {
-      console.log(`O troll escolheu: ${jokempo[n_aleatorio]}`);
-      console.log(`${nome}, você venceu!`);
-      rodadas--;
-      pontosusuario++;
-      console.log();
-    }
-
-    if (jokempo[n_aleatorio] == "adaga" && usuario == "pergaminho") {
-      console.log(`O troll escolheu: ${jokempo[n_aleatorio]}`);
-      console.log();
-      console.log(`O troll venceu essa rodada.`);
-      rodadas--;
-      pontostroll++;
-    }
-
     if (
       usuario != jokempo[0] &&
       usuario != jokempo[1] &&
@@ -131,11 +96,14 @@ do {
       continue;
     }
   }
+
+  console.log();
+  let vencer = prompt("Calculando quem venceu... Dê enter para continuar.");
+  console.clear();
   console.log(`O trol fez ${pontostroll}`);
   console.log(`${nome} fez ${pontosusuario}`);
   console.log();
-  let vencer = prompt("Calculando quem venceu...");
-  console.clear();
+
   if (pontosusuario > pontostroll) {
     console.log(
       `${nome} é quem venceu! Agora você tem suprimentos o suficiente para terminar sua joranada.`
@@ -148,7 +116,7 @@ do {
     console.log();
   } else {
     console.log(
-      "Oh, não! Deu empate! Ninguêm ganhou mas você ainda pode jogar outra rodada"
+      "Oh, não! Deu empate! Ninguêm ganhou mas você ainda pode jogar outra rodada e tentar sua sorte de novo."
     );
     console.log();
   }
