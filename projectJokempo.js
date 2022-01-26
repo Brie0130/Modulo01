@@ -1,7 +1,8 @@
 const prompt = require("prompt-sync")();
 const jokempo = ["pedra", "pergaminho", "adaga"];
 
-let nome = prompt("Antes de iniciar nossa aventura, qual seu nome? ");
+console.log("Antes de iniciar nossa aventura, qual seu nome? ");
+let nome = prompt();
 
 console.clear();
 
@@ -21,9 +22,10 @@ let inicio3 = prompt().toLowerCase();
 console.clear();
 
 if (inicio3 == "sim" || inicio3 == "s") {
-  console.log("Você quer saber como jogar o jogo? ");
+  console.log("Você precisa de ajuda para saber como jogar o jogo? ");
   var ajuda = prompt();
 }
+
 if (ajuda == "sim") {
   var ajuda2 = prompt(
     "Pedra ganha da adaga, mas perde para o pergaminho; Adaga ganha do pergaminho, mas perde para a pedra; pergaminho ganha da pedra, mas perde para a adaga. "
@@ -38,6 +40,7 @@ do {
     );
     break;
   }
+
   console.log("Te deixarei escolher, quantas rodadas você gostaria de jogar? ");
   var rodadas = +prompt();
   var pontosusuario = 0;
@@ -100,8 +103,8 @@ do {
   console.log();
   let vencer = prompt("Calculando quem venceu... Dê enter para continuar.");
   console.clear();
-  console.log(`O trol fez ${pontostroll}`);
-  console.log(`${nome} fez ${pontosusuario}`);
+  console.log(`O trol fez ${pontostroll} pontos `);
+  console.log(`${nome} fez ${pontosusuario} pontos`);
   console.log();
 
   if (pontosusuario > pontostroll) {
