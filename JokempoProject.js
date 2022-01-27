@@ -48,7 +48,6 @@ do {
 
     let tamanho_array = jokempo.length;
     let n_aleatorio = Math.floor(Math.random() * tamanho_array);
-    //console.log(`${jokempo[n_aleatorio]}`);
 
     if (
       (jokempo[n_aleatorio] == "pergaminho" && usuario == "pergaminho") ||
