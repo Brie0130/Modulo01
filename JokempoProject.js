@@ -24,6 +24,12 @@ console.clear();
 if (inicio3 == "sim" || inicio3 == "s") {
   console.log("Você precisa de ajuda para saber como jogar o jogo? ");
   var ajuda = prompt();
+} else {
+  console.log();
+  console.log(
+    "Você decide não aceitar a estranha proposta do troll e se aventura mesmo sem suprimentos, enfrentando o destino duvidoso que o reserva."
+  );
+  return;
 }
 
 if (ajuda == "sim") {
@@ -33,20 +39,11 @@ if (ajuda == "sim") {
 }
 
 do {
-  if (inicio3 != "sim" || inicio3 != "s") {
-    console.log();
-    console.log(
-      "Você decide não aceitar a estranha proposta do troll e se aventura mesmo sem suprimentos, enfrentando o destino duvidoso que o reserva"
-    );
-    break;
-  }
-
   console.log("Te deixarei escolher, quantas rodadas você gostaria de jogar? ");
-  var rodadas = +prompt();
   var pontosusuario = 0;
   var pontostroll = 0;
 
-  while (rodadas > 0) {
+  for (let rodadas = +prompt(""); rodadas > 0; ) {
     var usuario = prompt("Qual a sua escolha? ").toLowerCase();
 
     let tamanho_array = jokempo.length;
@@ -95,6 +92,7 @@ do {
       console.log(
         "Você não inseriu uma escolha válida, vamos tentar novamente. Use pedra, pergaminho ou adaga."
       );
+      rodadas;
       console.log();
       continue;
     }
