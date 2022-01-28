@@ -73,21 +73,21 @@ let LadoA = valores[0];
 let LadoB = valores[1];
 let LadoC = valores[2];
 
-if ((LadoA * LadoA) == ((LadoB * LadoB) + (LadoC * LadoC))) {
+if (LadoA * LadoA == LadoB * LadoB + LadoC * LadoC) {
   console.log("Triângulo retângulo");
-} 
-if ( (LadoA * LadoA ) > ((LadoB * LadoB) + (LadoC * LadoC))) {
+}
+if (LadoA * LadoA > LadoB * LadoB + LadoC * LadoC) {
   console.log("Triângulo Obtusângulo");
-} 
-if ((LadoA * LadoA) < ((LadoB * LadoB) + (LadoC * LadoC))) {
+}
+if (LadoA * LadoA < LadoB * LadoB + LadoC * LadoC) {
   console.log("Triângulo Acutângulo");
-} 
+}
 if (LadoA == LadoB && LadoB == LadoC) {
   console.log("Triângulo Equilatero");
-} 
+}
 if (LadoA == LadoB || LadoC == LadoA || LadoB == LadoC) {
   console.log("Triângulo Isoceles");
-} 
-if (LadoA >= (LadoB + LadoC)) {
-    console.log("Não forma triâmgulo");
-} 
+}
+if (LadoA >= LadoB + LadoC) {
+  console.log("Não forma triâmgulo");
+}
