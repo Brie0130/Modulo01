@@ -47,9 +47,7 @@ do {
   while (isNaN(rodadas)) {
     console.log();
     console.log("Digite um número!");
-    console.log(
-      "Quantas rodadas você gostaria de jogar? "
-    );
+    console.log("Quantas rodadas você gostaria de jogar? ");
     rodadas = +prompt("");
     continue;
   }
@@ -133,3 +131,6 @@ do {
 
   var rejogar = prompt("Você quer jogar de novo? ").toLocaleLowerCase();
 } while (rejogar == "sim" || rejogar == "s");
+
+console.log();
+console.log(`Obrigada por jogar, ${nome}!`);
