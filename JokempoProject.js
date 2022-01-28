@@ -23,7 +23,7 @@ console.clear();
 
 if (inicio3 == "sim" || inicio3 == "s") {
   console.log("Você precisa de ajuda para saber como jogar o jogo? ");
-  var ajuda = prompt();
+  var ajuda = prompt().toLocaleLowerCase();
 } else {
   console.log();
   console.log(
@@ -131,5 +131,5 @@ do {
     console.log();
   }
 
-  var rejogar = prompt("Você quer jogar de novo? ");
+  var rejogar = prompt("Você quer jogar de novo? ").toLocaleLowerCase();
 } while (rejogar == "sim" || rejogar == "s");
