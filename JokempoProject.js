@@ -42,8 +42,18 @@ do {
   console.log("Te deixarei escolher, quantas rodadas você gostaria de jogar? ");
   var pontosusuario = 0;
   var pontostroll = 0;
+  let rodadas = +prompt("");
 
-  for (let rodadas = +prompt(""); rodadas > 0; ) {
+  while (isNaN(rodadas)) {
+    console.log();
+    console.log("Digite um número!");
+    console.log(
+      "Te deixarei escolher, quantas rodadas você gostaria de jogar? "
+    );
+    rodadas = +prompt("");
+    continue;
+  }
+  for (; rodadas > 0; ) {
     var usuario = prompt("Qual a sua escolha? ").toLowerCase();
 
     let tamanho_array = jokempo.length;
