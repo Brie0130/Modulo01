@@ -33,32 +33,32 @@ console.log(
 );
 
 //7) E os 10% do garçom? - Defina uma variável para o valor de uma refeição que
-// custou R$ 42,54. Na sequência, defina uma variável para o valor da taxa de serviço 
-//que é de 10%. Por fim defina uma variável que será responsável pelo cálculo do 
-//valor total da conta e exiba-o no console com a seguinte formatação: R$99.99 
+// custou R$ 42,54. Na sequência, defina uma variável para o valor da taxa de serviço
+//que é de 10%. Por fim defina uma variável que será responsável pelo cálculo do
+//valor total da conta e exiba-o no console com a seguinte formatação: R$99.99
 //(valor com duas casas decimais).
 
-let valor = 42.54
-let taxadeservico = 0.1
-let porcentagem = valor * taxadeservico
-let valortotal = porcentagem + valor
+let valor = 42.54;
+let taxadeservico = 0.1;
+let porcentagem = valor * taxadeservico;
+let valortotal = porcentagem + valor;
 
-let total = valortotal.toFixed(2) //o .toFixed é o número de casas decimais
+let total = valortotal.toFixed(2); //o .toFixed é o número de casas decimais
 
-console.log(total)
+console.log(total);
 
-//8) Qual o valor do troco? - Crie um programa que calcule o troco de uma 
+//8) Qual o valor do troco? - Crie um programa que calcule o troco de uma
 //compra no valor de R$100,98 e que foi paga com R$150,00.
 // O valor do troco deve ser exibido no console.
 
-let troco =  150.00 - 100.98
-Math.round(troco) //o Math.round() arrendonda um número
-let total2 = troco.toFixed(2)
-console.log(total2)
+let troco = 150.0 - 100.98;
+Math.round(troco); //o Math.round() arrendonda um número
+let total2 = troco.toFixed(2);
+console.log(total2);
 
-//9) Conversor de moedas - Crie um programa que solicite um um valor em real ao usuário 
+//9) Conversor de moedas - Crie um programa que solicite um um valor em real ao usuário
 //e converta esse valor, para dólar.
 
-let real = +prompt("Digite um valor em real: ")
-let conversor = real * 5.41
-console.log(`O valor de R$ ${real} em dolár é ${conversor} USD`)
+let real = +prompt("Digite um valor em real: ");
+let conversor = real * 5.41;
+console.log(`O valor de R$ ${real} em dolár é ${conversor} USD`);
