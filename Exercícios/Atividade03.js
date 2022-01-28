@@ -1,5 +1,5 @@
 const prompt = require("prompt-sync")();
-
+/*
 // 1) Faça um Programa que peça dois números e imprima o maior deles, e informe caso eles sejam iguais.
 
 let num1 = +prompt("Digite um número: ");
@@ -45,7 +45,7 @@ if (divisão == 0) {
 } else {
   console.log(`${num} é um número ímpar`);
 }
-
+*/
 
 //Faça um programa que leia 3 valores que representam os lados de um triângulo A, B e C
 //e ordene-os em ordem decrescente, de modo que o lado A representa o maior dos 3 lados.
@@ -73,13 +73,13 @@ let LadoA = valores[0];
 let LadoB = valores[1];
 let LadoC = valores[2];
 
-if ((LadoA * LadoA) == (LadoB * LadoB) + (LadoC * LadoC)) {
+if ((LadoA * LadoA) == ((LadoB * LadoB) + (LadoC * LadoC))) {
   console.log("Triângulo retângulo");
 } 
-if ( (LadoA * LadoA ) > (LadoB * LadoB) + (LadoC * LadoC)) {
+if ( (LadoA * LadoA ) > ((LadoB * LadoB) + (LadoC * LadoC))) {
   console.log("Triângulo Obtusângulo");
 } 
-if ((LadoA * LadoA) < (LadoB * LadoB) + (LadoC * LadoC)) {
+if ((LadoA * LadoA) < ((LadoB * LadoB) + (LadoC * LadoC))) {
   console.log("Triângulo Acutângulo");
 } 
 if (LadoA == LadoB && LadoB == LadoC) {
