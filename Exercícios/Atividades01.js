@@ -62,3 +62,46 @@ console.log(total2);
 let real = +prompt("Digite um valor em real: ");
 let conversor = real * 5.41;
 console.log(`O valor de R$ ${real} em dolár é ${conversor} USD`);
+
+// AULA 
+
+let string = 'Blue EdTech';
+let numberInt = 10;
+let numberFloat = 10.5;
+let boolean = true;
+
+console.log(string);
+console.log(numberInt);
+console.log(numberFloat);
+console.log(boolean);
+console.log();
+
+// Exibindo os tipos das variáveis
+console.log(typeof(string));
+console.log(typeof(numberInt));
+console.log(typeof(numberFloat));
+console.log(typeof(boolean));
+
+//operadores matemáticos
+
+let nome = prompt('Qual é o seu nome? ');
+console.log('Olá',nome);
+
+let num1 = +prompt('Digite um número: ');
+let num2 = +prompt('Digite outro número: ');
+
+let subtracao = num1 - num2;
+
+console.log(`Subtração: ${num1} - ${num2} = ${subtracao}`);
+console.log('Multiplicação:',num1,'*',num2,'=',num1 * num2); // Em JavaScript usamos um * para multiplicação
+console.log(`Divisão: ${num1} / ${num2} = ${num1 / num2}`);
+console.log(`Resto da divisão de ${num1}/${num2}: ${num1 % num2}`);
+console.log(`Resultado de ${num1} elevado a ${num2}: ${num1 ** num2}`);
+
+let resultado = num1 / num2
+// Transformando o número num inteiro com parseInt
+let resultadoInt = parseInt(resultado);
+console.log('Resultado em número inteiro:',resultadoInt);
+//
+
+console.log();
