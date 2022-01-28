@@ -48,7 +48,7 @@ do {
     console.log();
     console.log("Digite um número!");
     console.log(
-      "Te deixarei escolher, quantas rodadas você gostaria de jogar? "
+      "Quantas rodadas você gostaria de jogar? "
     );
     rodadas = +prompt("");
     continue;
