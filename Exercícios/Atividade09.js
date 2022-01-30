@@ -30,7 +30,6 @@ for (const key of impares) {
 
 console.log(impares);
 
-
 //Faça um programa que, dado uma lista de N números (o usuário deve determinar a quantidade de
 //números a serem entrados e entrar cada um deles), determine o menor valor,
 // o maior valor e a soma dos valores.
@@ -57,7 +56,6 @@ var menor = Math.min(...numeros);
 console.log(`O maior número é ${maior}`);
 console.log(`O menor número é ${menor}`);
 console.log(`A soma total dos números é ${total}`);
-
 
 //Numa eleição existem três candidatos.
 //Faça um programa que peça o número total de eleitores.
@@ -115,4 +113,3 @@ for (let index = 0; index < km.length; index++) {
     `O modelo de carro ${modelos[index]} precisará de ${gasolina2}L de gasolina para rodar 1000Km e custará R$ ${consumo2} `
   );
 }
-
