@@ -1,5 +1,5 @@
 const prompt = require("prompt-sync")();
-
+/*
 //1) Faça um programa que peça um número inteiro e determine se ele é ou não um número primo.
 //Um número primo é aquele que é divisível somente por ele mesmo e por 1.
 
@@ -25,14 +25,14 @@ if (soma == 2) {
 } else if (soma != 2) {
   console.log("Não é um número primo");
 }
-/*
+*/
 //2) Peça ao usuário para digitar vários nomes (a quantidade deve ser escolhida por ele).
 // Exiba na tela todos os nomes digitados, porém de maneira invertida (do último para o primeiro),
 // apresente também o maior e o menor nome (caso haja empate, deve mostrar todos).
 
 let nomes = [];
-let maior = [];
-let menor = [];
+let maior = "";
+let menor = ""
 
 let quantidade = +prompt("Quantos nomes vai digitar? ");
 
@@ -41,7 +41,18 @@ for (let i = 0; i < quantidade; i++) {
   nomes.unshift(nome);
 }
 
+for (let i of nomes) {
+  if (i.length > maior.length) {
+    maior = i
+  }
 }
+for (let i of nomes) {
+  if (i.length < menor.length) {
+    menor = i
+  }
+}
+
+
 console.log(menor);
 console.log(maior);
 console.log(nomes);
@@ -56,4 +67,3 @@ console.log(nomes);
 // com 3 arrays de 3 elementos cada dentro). O programa deve pedir as coordenadas (linha e coluna)
 // alternadamente para 2 jogares e marcar X ou O em cada caso. Caso um jogador vença, ele deve
 // interromper o programa e anunciar o vencedor.
-*/
