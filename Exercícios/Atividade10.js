@@ -25,14 +25,14 @@ if (soma == 2) {
 } else if (soma != 2) {
   console.log("Não é um número primo");
 }
-*/
+
 //2) Peça ao usuário para digitar vários nomes (a quantidade deve ser escolhida por ele).
 // Exiba na tela todos os nomes digitados, porém de maneira invertida (do último para o primeiro),
 // apresente também o maior e o menor nome (caso haja empate, deve mostrar todos).
 
 let nomes = [];
 let maior = "";
-let menor = ""
+let menor = abcdefghijklmnop;
 
 let quantidade = +prompt("Quantos nomes vai digitar? ");
 
@@ -43,12 +43,13 @@ for (let i = 0; i < quantidade; i++) {
 
 for (let i of nomes) {
   if (i.length > maior.length) {
-    maior = i
+    maior = i;
   }
 }
+
 for (let i of nomes) {
-  if (i.length < menor.length) {
-    menor = i
+  if (i.length > menor.length) {
+    menor = i;
   }
 }
 
@@ -56,7 +57,7 @@ for (let i of nomes) {
 console.log(menor);
 console.log(maior);
 console.log(nomes);
-
+*/
 //3) Faça um programa que peça ao usuário digitar a população e a taxa de crescimento populacional
 // de 2 países A e B, sendo que a população do país A deve ser menor que a de B, e a taxa de
 // crescimento de A seja maior. Faça um programa que calcule e escreva o número de anos necessários
