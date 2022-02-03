@@ -7,7 +7,7 @@ console.clear();
 // se deseja cadastrar um novo funcionário e recomeçar o processo, e caso não haja mais funcionários
 // para cadastrar, ele deve chamar uma função que deve apresentar a quantidade de funcionários com
 // cada cargo e os nomes deles. (Você pode limitar as opções de cargo para facilitar.)
-
+/*
 function ContarFuncionários(lista) {
   let Junior = [];
   let Senior = [];
@@ -38,7 +38,6 @@ function ContarFuncionários(lista) {
   }
 }
 
-let total = 0;
 var listadefuncionario = [];
 do {
   var funcionario = {};
@@ -52,8 +51,44 @@ do {
   listadefuncionario.push(funcionario);
 
   var inicio = prompt("Deseja cadastrar outro funcinário? ");
-
 } while (inicio == "sim");
 
 ContarFuncionários(listadefuncionario);
+*/
+//Crie um objeto pessoa com os atributos: nome, idade, peso e altura. Além disso ela
+// deve ter os métodos: Envelhecer, engordar, emagrecer, crescer. Por padrão, a cada ano
+// que nossa pessoa envelhece até os 21 anos, ela deve crescer 0,5 cm. Crie um método bio
+// que retorna uma string com todas as informações da pessoa.
+
+pessoa = {
+    nome: 'Alan' ,
+    idade: 10,
+    peso: 50,
+    altura: 1.40
+,
+envelhecer: function () {
+  for (let i = this.idade; i< 22; i++) {
+      this.altura = this.altura + 0.05
+  }  
+},
+
+bio: function () {
+    console.log(pessoa)
+}
+
+
+};
+
+pessoa.bio()
+pessoa.envelhecer()
+console.log(pessoa)
+let tudo = [];
+/*
+pessoa.nome = prompt(`Qual é o nome? `);
+pessoa.idade = +prompt(`Qual a idade? `);
+pessoa.peso = +prompt(`Qual é o peso? `);
+pessoa.altura = +(`Qual é a altura? `);
+*/
+tudo.push(pessoa);
+
 
