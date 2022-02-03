@@ -9,38 +9,51 @@ console.clear();
 // cada cargo e os nomes deles. (Você pode limitar as opções de cargo para facilitar.)
 
 function ContarFuncionários(lista) {
-    let Junior = []
-    let Senior = []
-    let qtjunior = 0
-    let qtsenior = 0
+  let Junior = [];
+  let Senior = [];
+  let qtjunior = 0;
+  let qtsenior = 0;
 
-    for (const i of lista) {
-        if (funcionario.cargo == "junior") {
-            qtjunior++
-        } else (funcionario.cargo== "senior") {
-            qtsenior++
+  for (const i of lista) {
+    if (i.cargo == "junior") {
+      qtjunior++;
+      Junior.push(i.nome);
+    } else if (i.cargo == "senior") {
+      qtsenior++;
+      Senior.push(i.nome);
     }
+  }
 
-    
+  console.log(`Quantidade de pessoas junior: ${qtjunior}`);
+  console.log(`Quantidade de alunos: ${qtsenior} `);
+  console.log();
+  console.log("Dev Senior:");
+  for (let i of Senior) {
+    console.log(i);
+  }
+  console.log();
+  console.log("Dev Junior:");
+  for (let i of Junior) {
+    console.log(i);
+  }
 }
 
-
-let funcionariostotal = [];
+let total = 0;
+var listadefuncionario = [];
 do {
-  let funcionario = {};
-  let nome = prompt("O nome do funcionário é: ");
-  funcionario.nome = nome;
+  var funcionario = {};
 
-  let cargo = prompt("O cargo do funcionário é: ");
-  funcionario.cargo = cargo;
+  funcionario.nome = prompt("O nome do funcionário é: ");
 
-  let salario = +prompt("O salário do funcionário é: ");
-  funcionario.salario = salario;
+  funcionario.cargo = prompt("O cargo do funcionário é: ");
 
-  funcionariostotal.push(funcionario);
+  funcionario.salario = +prompt("O salário do funcionário é: ");
+
+  listadefuncionario.push(funcionario);
+
   var inicio = prompt("Deseja cadastrar outro funcinário? ");
+
 } while (inicio == "sim");
 
-console.log(funcionariostotal);
-console.log();
-console.log(`A quantidade `)
+ContarFuncionários(listadefuncionario);
+
