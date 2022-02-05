@@ -51,7 +51,7 @@ let status = {
   AumentarHora: function (valor) {
     this.hora += valor
     if (this.hora) {
-      
+
     }
   }
 
@@ -281,6 +281,7 @@ function manhaENEM() {
     console.log('3 - Ligue para a Ordem e pergunte sobre mais informações');
 
 }
+
 
 manha();
 //manhaENEM();
