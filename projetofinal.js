@@ -66,6 +66,12 @@ function tempo() {
   }
 }
 
+function sorteio() {
+  let dados1d6 = Math.floor(1 + 6 * Math.random());
+  let rolagem1d6 = dados1d6 * 3 * 5;
+  return rolagem1d6
+}
+
 console.log(
   `Existem dois mundos:  o Normal e o Paranormal. O normal é o que a maioria dos humanos tem acesso,  o Paranormal é um lugar onde o ímpossivel pode acontecer. No Paranormal existem criaturas indescritíveis, só de olhar-lás um humano comum pode enlouquecer completamente.`
 );
@@ -102,30 +108,31 @@ console.log("Vamos definir seus atributos como agente da Ordem");
 console.log();
 
 enter = prompt("Vamos fazer a primeira rolagem, para determinar a Força...");
-let dados1d6 = Math.floor(1 + 6 * Math.random());
-rolagem1d6 = dados1d6 * 3 * 5;
-console.log(`A sua força será: ${rolagem1d6}`);
+let rolagem1d6 = sorteio()
 status.forca = rolagem1d6;
+console.log(`A sua força será: ${rolagem1d6}`);
+
 
 enter = prompt("Vamos fazer a segunda rolagem, para determinar a Sanidade...");
-rolagem1d6 = dados1d6 * 3 * 5;
-status.sanidade = rolagem1d6;
+rolagem1d6 = sorteio()
+status.sanidade = rolagem1d6
 console.log(`A sua sanidade será: ${rolagem1d6}`);
 
 enter = prompt("Vamos fazer a terceira rolagem, para determinar a pontaria...");
-rolagem1d6 = dados1d6 * 3 * 2;
+rolagem1d6 = sorteio();
 status.pontaria = rolagem1d6;
 console.log(`A sua pontaria será: ${rolagem1d6}`);
 
 enter = prompt("Agora a quarta rolagem, para determinar a sua vida...");
-rolagem1d6 = dados1d6 * 3 * 2;
+rolagem1d6 = sorteio();
 status.vida = rolagem1d6;
+console.log(`A sua vida será: ${rolagem1d6}`);
 
-enter = prompt("Agora a quinta rolagem, para determinar a sua Energia...");
-rolagem1d6 = dados1d6 * 3 * 2;
+enter = prompt("A quinta rolagem, para determinar a sua Energia...");
+rolagem1d6 = sorteio();
 status.energia = rolagem1d6;
+console.log(`A sua energia será: ${rolagem1d6}`);
 
-console.log(`A sua pontaria será: ${rolagem1d6}`);
 //usar console log separadente aqui nesse objeto
 console.log(`Os seus atributos inicias são`, status);
 enter = prompt();
