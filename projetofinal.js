@@ -49,13 +49,10 @@ let status = {
   },
 
   AumentarHora: function (valor) {
-    this.hora += valor
+    this.hora += valor;
     if (this.hora) {
-
     }
-  }
-
-
+  },
 };
 
 function tempo() {
@@ -69,7 +66,7 @@ function tempo() {
 function sorteio() {
   let dados1d6 = Math.floor(1 + 6 * Math.random());
   let rolagem1d6 = dados1d6 * 3 * 5;
-  return rolagem1d6
+  return rolagem1d6;
 }
 
 console.log(
@@ -108,14 +105,13 @@ console.log("Vamos definir seus atributos como agente da Ordem");
 console.log();
 
 enter = prompt("Vamos fazer a primeira rolagem, para determinar a Força...");
-let rolagem1d6 = sorteio()
+let rolagem1d6 = sorteio();
 status.forca = rolagem1d6;
 console.log(`A sua força será: ${rolagem1d6}`);
 
-
 enter = prompt("Vamos fazer a segunda rolagem, para determinar a Sanidade...");
-rolagem1d6 = sorteio()
-status.sanidade = rolagem1d6
+rolagem1d6 = sorteio();
+status.sanidade = rolagem1d6;
 console.log(`A sua sanidade será: ${rolagem1d6}`);
 
 enter = prompt("Vamos fazer a terceira rolagem, para determinar a pontaria...");
@@ -134,7 +130,7 @@ status.energia = rolagem1d6;
 console.log(`A sua energia será: ${rolagem1d6}`);
 
 //usar console log separadente aqui nesse objeto
-console.log(`Os seus atributos inicias são`, status);
+console.log(`Os seus atributos inicias são`, status.nome, status.energia);
 enter = prompt();
 
 let nomedefinido = prompt("Agora, só falta me dizer seu nome: ");
@@ -284,11 +280,14 @@ function manhaENEM() {
     "Você se vê diante de uma escola que foi carbonizada. Há alguns policiais na frente, o que você quer fazer?"
   );
   console.log(" 1 - Vá falar com os policiais");
-  console.log('2 - Tente entrar no escondido');
-    console.log('3 - Ligue para a Ordem e pergunte sobre mais informações');
+  console.log("2 - Tente entrar no escondido");
+  console.log("3 - Ligue para a Ordem e pergunte sobre mais informações");
+  let escolha2 = prompt('Sua escolha: ');
+  if (escolha2 == 1) {
+    console.log('Você se dirige aos policiais, o que você de')
+  }
 
 }
-
 
 manha();
 //manhaENEM();
