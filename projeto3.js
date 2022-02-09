@@ -403,7 +403,13 @@ function TardeEnem() {
       //agora o barulho fica mais forte
       //você se dirge atrá dele
     }
-    console.log('Zumpi de sengue')
+  console.log('Você se vê diante de um zumbi de sangue, por ser a primeira vez que você está diante dessa criatura, você perde 5 de sanidade');
+  status.perderSanidade(5)
+  console.log()
+  let danoDoZumbi = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  status.perderVida(danoDoZumbi)
+  console.log()
+  
 //perda de sanidade
     //luta, com quê?????
 
