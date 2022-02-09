@@ -1,5 +1,6 @@
 const prompt = require("prompt-sync")();
 console.clear();
+let parar = true
 let valor = 0
 let status = {
   nome: "",
@@ -59,12 +60,10 @@ let status = {
     },
 
   mostrarRelogio: function () {
-      console.log(`Hoje é dia ${dia} de Março de 2019`);
-      console.log(`São ${hora} horas e ${min} minutos.`)
+      console.log(`Hoje é dia ${this.dia} de Março de 2019`);
+      console.log(`São ${this.hora} horas e ${this.min} minutos.`)
     },
   
-
-
 };
 
 //vida, força
@@ -79,7 +78,40 @@ function rolagem1d6() {
   return dados1d6;
 }
 
+function umEnem() {
+  console.log("Você se dirige aos policiais e tenta usar seu charme e simpatia para obter informações, você precisa de 10 pontos de carisma para passar.");
+  rolagem = rolagem1d6()
+  console.log(`O dado rolou: ${rolagem}`)
+  let rolagemPC = rolagem + status.carisma
+  console.log(`Juntando com o seu carisma o valor é ${rolagemPC}`);
+  if (rolagem >= 10) {
+    console.log('Os policiais caem no seu papo e falam ')
+  } else {
+    console.log('Os policiais não caem')
+  }
+  console.log()
+  status.maisMinutos(20)
+}
+function tresEnem(escolha) {
+  
 
+  console.log(
+    "A Ordem é ocupada, você vai precisar tirar 7 de sorte para conseguir falar com eles."
+  );
+  rolagem = rolagem1d6();
+  console.log(`O dado rolou: ${rolagem}`);
+  rolagemPC = rolagem + status.sorte;
+  console.log(`Juntando com a sua sorte o valor é ${rolagemPC}`);
+  if (rolagemPC >= 7) {
+    //talvez aleatorizar as dicas?
+    console.log("Dica sobre algo");
+  } else {
+    console.log("Ninguêm atende");
+  }
+  console.log();
+  status.maisMinutos(5);
+}
+/*
 
 //1d6, para passar precisa completar 10 (dif), 8 (méd), 7 (fácil)
 // Isso funciona: console.log(rolagem1d6())
@@ -132,7 +164,7 @@ console.log(`A sua sanidade será: ${rolagem}`);
 enter = prompt("Vamos fazer a terceira rolagem, para determinar a sua Sorte...");
 rolagem2 = rolagem1d6()
 status.sorte = rolagem2;
-console.log(`A sua pontaria será: ${rolagem2}`);
+console.log(`A sua sorte será: ${rolagem2}`);
 
 enter = prompt("Agora a quarta rolagem, para determinar a sua Vida...");
 rolagem = rolagemdedados();
@@ -145,7 +177,7 @@ enter = prompt("A última rolagem, para determinar seu Carisma...");
 rolagem2 = rolagem1d6();
 status.carisma = rolagem2;
 console.log(`O seu carisma será: ${rolagem2}`);
-
+enter = prompt()
 console.clear()
 console.log(`Os seus atributos inicias são: `);
 console.log(`Sua força: ${status.força}. Ela é necessária para realizar ataques.`);
@@ -157,48 +189,52 @@ enter = prompt();
 
 let nomedefinido = prompt("Agora, só falta me dizer o nome do seu agente: ");
 status.nome = nomedefinido;
-enter = prompt();
 console.clear()
-
+*/
+/*
 function manha() {
-  while (parar) {
-    console.log(
-      `Você ouve o alarme do seu celular tocar, são ${hora} da manhã de ${dia} de março de 2019 e é seu dia de folga do trabalho. O que você quer fazer?`
-    );
-    console.log();
-    console.log(`   1 - Desligar o celular e dormir mais um pouco 
+    let pausa = 0
+    while (pausa == 0) {
+        status.mostrarRelogio()
+        console.log(
+            `Você ouve o alarme do seu celular tocar, é seu dia de folga do trabalho. O que você quer fazer?`);
+      
+        console.log();
+        console.log(`   1 - Desligar o celular e dormir mais um pouco 
     2 - Levantar da cama e tomar seu café da manhã 
     3 - Se levantar e se exercitar`);
-    console.log();
-    let manha1 = +prompt("Sua escolha: ");
+        console.log();
+        let manha1 = +prompt("Sua escolha: ");
 
-    if (manha1 == 1) {
-      console.log(
-        `${nome}, você dormiu até mais tarde e recebou um adendo de 2 na vida por ter descansado mais.`
-        );
-        status.maisHora(2)
-      valor = 5;
-      status.ganharVida(valor);
-    } else if (manha1 == 2) {
-      console.log(
-        `Você acordou as ${hora} horas e fez um café da manhã reforçado, você ganhou mais 5 de vida.`
-        );
-        status.maisHora(2)
-      valor = 10;
-      status.ganharVida(valor);
-    } else if (manha1 == 3) {
-      console.log(
-        `Você acordou as ${hora} horas e foi se exercitar antes do café da manhã, isso lhe rendeu um acressímo de 2 na força.`
-        );
-        status.maisHora(2);
- 
-      valor = 2;
-      status.ganharForca(valor);
-    } else {
-      console.log("Você não inseriu uma escolha válida, vamos tentar de novo");
-      continue;
+        if (manha1 == 1) {
+            console.log(
+                `${status.nome}, você dormiu até mais tarde e recebou um adendo de 2 na vida por ter descansado mais.`
+            );
+            status.maisHora(2)
+            //valor = 5;
+            status.ganharVida(5);
+        } else if (manha1 == 2) {
+            console.log(
+                `Você acordou as ${status.hora} horas e fez um café da manhã reforçado, você ganhou mais 5 de vida.`
+            );
+            status.maisHora(2)
+            //valor = 10;
+            status.ganharVida(10);
+        } else if (manha1 == 3) {
+            console.log(
+                `Você acordou as ${status.hora} horas e foi se exercitar antes do café da manhã, isso lhe rendeu um acressímo de 2 na força.`
+            );
+            status.maisHora(2);
+            status.ganharForça(2)
+    
+        } else {
+            console.log("Você não inseriu uma escolha válida, vamos tentar de novo");
+            continue;
+        }
+        pausa = +1
     }
-    while (hora < 10) {
+        
+    while (status.hora < 10) {
       console.log(
         "Você ainda tem um tempo livre, o que você gostaria de fazer?"
       );
@@ -223,21 +259,21 @@ status.maisHora(2);
         valor = 1;
         status.ganharSanidade(valor);
       } else if (escolha1 == 2) {
-        aleat = Math.floor(Math.random() * (1 + 1) + 1);
-        if (aleat == 1) {
-          console.log(
-            "Você tenta falar com um amigo mas ele não atende. Deve estar ocupado.."
-          );
-         status.maisMinutos(15)
-        } else {
-          console.log(
-            "Você conversa com um amigo com quem você não falava a tempos! Você se lembra de como essa amizade era boa e ganha mais 2 pontos de sanidade"
-          );
-        }
-      status.maisHora(2);
-        valor = 2;
-        status.ganharSanidade(valor);
-      } else if (escolha1 == 3) {
+                aleat = Math.floor(Math.random() * (1 + 1) + 1);
+                if (aleat == 1) {
+                console.log(
+                    "Você tenta falar com um amigo mas ele não atende. Deve estar ocupado.."
+                );
+                status.maisMinutos(15)
+                } else {
+                console.log(
+                    "Você conversa com um amigo com quem você não falava a tempos! Você se lembra de como essa amizade era boa e ganha mais 2 pontos de sanidade"
+                    );
+                status.maisHora(2);
+                valor = 2;
+                status.ganharSanidade(valor);
+                }
+            } else if (escolha1 == 3) {
         aleat = Math.floor(Math.random() * (1 + 1) + 1);
         if (aleat == 1) {
           console.log(
@@ -259,16 +295,16 @@ status.maisHora(2);
         continue;
       }
     }
-
-    if (hora > 10) {
-      parar = false;
-      console.log(`Já são ${hora} horas.`);
-      enter = prompt();
-      console.clear();
+    if (status.hora >= 10) {
+        console.log(`Já são ${status.hora} horas.`);
+      console.log();
+        var contagemmanhã = 0
+        console.clear();
       if (contagemmanhã == 0) {
         console.log(
           "Seu telfone começa a tocar e você o atende. Uma voz do outro lado diz 'Sr. Verrissímo, ocorreu uma aparição paranormal na Escola Nostradamus de Ensino Médio, temos conhecimento de que o incêndio ocorrido lá tem forte presença paranormal. Dirija-se para lá imediatamente e, lembre-se, pessoas comuns não devem ter real conhecimento do que você investiga.  '"
         );
+        enter = prompt();
       } else if (contagemmanhã == 1)
         console.log(
           `Seu telefone toca, ao atendê-lo você ouve: "Sr. Vérissimo, temos conhecimento de atividades paranormais no Hotel Sem Saída, diriga-se para lá e derrote os seres paranormais".`
@@ -279,14 +315,15 @@ status.maisHora(2);
       contagemmanhã++;
     }
   }
-}
 
+*/
 function TardeEnem() {
       status.maisHora(2)
       console.log(
         `Você se dirige até a Escola Nostradamus de Ensino Médio, abreviada para ENEM. Se passam duas horas.`
       );
-      console.log();
+    console.log();
+    enter = prompt()
       console.clear();
       status.mostrarRelogio()
       console.log();
@@ -297,65 +334,86 @@ function TardeEnem() {
       console.log("2 - Tente entrar no escondido");
     console.log("3 - Ligue para a Ordem e pergunte sobre mais informações");
     console.log()
-    let escolha2 = prompt("Sua escolha: ");
-    do {
+    let escolha = prompt("Sua escolha: ");
+    while (escolha != 1 && escolha != 2 && escolha != 3){
         console.log('A escolha não é válida, digite novamente.')
-        escolha2 = +prompt("Sua escolha: ");
-    } while (escolha2 != 1 && escolha2 != 2 && escolha2 != 3);
- 
-    if (escolha2 == 1 || escolha3 == 1) {
-    console.log("Você se dirige aos policiais e tenta usar seu charme e simpatia para obter informações, você precisa de 10 pontos de carisma para passar.");
-    let rolagem = rolagem1d6()
-    console.log(`O dado rolou: ${rolagem}`)
-    let rolagemPC = rolagem + status.carisma 
-        console.log(`Juntando com o seu carisma o valor é ${rolagemPC}`);
-        if (rolagem >= 10) {
-            console.log('Os policiais caem no seu papo e falam ')
-        } else {
-            console.log('Os policiais não caem')
-        }
-        console.log()
-        status.maisMinutos(20)
-        console.log('O que vai fazer agora? ')
-        console.log("2 - Tente entrar no escondido");
-        console.log("3 - Ligue para a Ordem e pergunte sobre mais informações");
-        let escolha3 = +prompt('Sua escolha: ')
-    do {
+        escolha = +prompt("Sua escolha: ");
+  } 
+  
+  if (escolha == 1) {
+    umEnem()
+    console.log("O que vai fazer agora? ");
+    console.log("2 - Tente entrar no escondido");
+    console.log("3 - Ligue para a Ordem e pergunte sobre mais informações");
+    let escolha2 = +prompt("Sua escolha: ");
+    while (escolha2 != 2 && escolha2 != 3) {
       console.log("A escolha não é válida, digite novamente.");
+      escolha2 = +prompt("Sua escolha: ");
+    }
+    //else se entrar direto, n colocar dentro de um if
+    if (escolha2 == 3) {
+      tresEnem()
+      console.log("O que vai fazer agora? ");
+      console.log("2 - Tente entrar no escondido")
+      console.log()
       escolha3 = +prompt("Sua escolha: ");
-    } while (escolha3 != 2 && escolha3 != 3);
-
-    } 
-    if (escolha2 == 3 || escolha3 == 3) {
-        console.log('A Ordem é ocupada, você vai precisar tirar 7 de sorte para conseguir falar com eles.')
-        rolagem = rolagem1d6();
-        console.log(`O dado rolou: ${rolagem}`);
-        rolagemPC = rolagem + status.sorte
-        console.log(`Juntando com a sua sorte o valor é ${rolagemPC}`);
-        if (rolagemPC >= 7) {
-            //talvez aleatorizar as dicas?
-            console.log('Dica sobre algo')
-        } else {
-            console.log('Ninguêm atende')
-        }
-        console.log();
-        status.maisMinutos(5);
-        console.log("O que vai fazer agora? ");
-        console.log("1 - Vá falar com os policiais");
-        console.log("2 - Tente entrar no escondido");
-        escolha3 = +prompt("Sua escolha: ");   
-        
-    do {
+      while (escolha3 != 2) {
+        console.log("A escolha não é válida, digite novamente.");
+        escolha3 = +prompt("Sua escolha: ");
+      }
+    }
+  } else if (escolha == 3) {
+    tresEnem()
+    console.log("O que vai fazer agora? ");
+    console.log("1 - Vá falar com os policiais");
+    console.log("2 - Tente entrar no escondido");
+    escolha2 = +prompt("Sua escolha: ");
+    while (escolha2 != 2 && escolha2 != 1) {
       console.log("A escolha não é válida, digite novamente.");
+      escolha2 = +prompt("Sua escolha: ");
+    }
+    if (escolha2 == 1) {
+      umEnem()
+      console.log("O que vai fazer agora? ");
+      console.log("2 - Tente entrar no escondido")
+      console.log()
       escolha3 = +prompt("Sua escolha: ");
-    } while (escolha3 != 1 && escolha3 != 2);
-    }
+      while (escolha3 != 2) {
+        console.log("A escolha não é válida, digite novamente.");
+        escolha3 = +prompt("Sua escolha: ");
+      }
 
-    if (escolha2 == 2 || escolha3 == 2) {
-        console.log("Você se dige a escola")
     }
-}
+  } 
 
+    console.log('Você entra na escola atravês de uma cerca quebrada, ao adentrar o espaço você percebe um barulho estranho vindo de uma das salas de aula');
+    console.log();
+    console.log('Você prefere seguir o som ou investigar o local?');
+    console.log('[1] - Seguir o som');
+    console.log('[2] - Investigar o local')
+    let escol = prompt('Sua escolha: ');
+    while (escol != 1 && escol != 2) {
+        console.log("A escolha não é válida, digite novamente.");
+        escol = +prompt("Sua escolha: ");
+    }
+    if (escol == 2) {
+      //sorte??? - Acha algo a mais, um caderno??
+      //acha jornal antigo da escola sobre desaparecimento de alunas
+      console.log()
+      //agora o barulho fica mais forte
+      //você se dirge atrá dele
+    }
+    console.log('Zumpi de sengue')
+//perda de sanidade
+    //luta, com quê?????
+
+
+
+  //Fazer a escolha dois aqui no geral
+
+ }
+//manha()
+TardeEnem()
 
 /*
 Continuação do código: Vai até a escola, luta com dois zumbis de sangue, perde sanidae
