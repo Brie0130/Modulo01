@@ -463,20 +463,17 @@ function TardeEnem() {
   console.log("Você se dirige ao ");
   console.log(`[1] - Questionar sobre os estudantes`);
   console.log(`[2] - Atacar`);
-  escolha = +prompt('Sua escolha: ');
+  escolha = +prompt("Sua escolha: ");
 
-  if (escolha == 1){
-//explicar coisas
+  if (escolha == 1) {
+    //explicar coisas
   }
   //briga
-
-
 }
 
 function noite() {
-  console.log('vc chegou em casa')
-  status.mostrarRelogio()
-  
+  console.log("vc chegou em casa");
+  status.mostrarRelogio();
 }
 //manha()
 TardeEnem();
