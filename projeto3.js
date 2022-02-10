@@ -1,7 +1,7 @@
 const prompt = require("prompt-sync")();
 console.clear();
-let parar = true
-let valor = 0
+let parar = true;
+let valor = 0;
 let status = {
   nome: "",
   vida: 0,
@@ -11,29 +11,29 @@ let status = {
   força: 0,
   hora: 6,
   min: 0,
-    dia: 1,
+  dia: 1,
+  //array para armas for para escrever as opções
 
-    ganharForça: function (valor) {
-        this.força += valor
-        return this.forca
-
-    },
-    //PQ EU COLOQUEI RETURN?????
+  ganharForça: function (valor) {
+    this.força += valor;
+    return this.forca;
+  },
+  //PQ EU COLOQUEI RETURN?????
 
   ganharVida: function (valor) {
     this.vida += valor;
     return this.vida;
   },
 
-    perderVida: function (valor) {
-        this.vida -= valor;
-        if (this.vida == 0) {
-            console.log("Você morreu :(");
-            return true
-        } else {
-            return false
-        }
-    },
+  perderVida: function (valor) {
+    this.vida -= valor;
+    if (this.vida == 0) {
+      console.log("Você morreu :(");
+      return true;
+    } else {
+      return false;
+    }
+  },
 
   ganharSanidade: function (valor) {
     this.sanidade += valor;
@@ -57,13 +57,12 @@ let status = {
       this.hora++;
       this.min = this.min - 60;
     }
-    },
+  },
 
   mostrarRelogio: function () {
-      console.log(`Hoje é dia ${this.dia} de Março de 2019`);
-      console.log(`São ${this.hora} horas e ${this.min} minutos.`)
-    },
-  
+    console.log(`Hoje é dia ${this.dia} de Março de 2019`);
+    console.log(`São ${this.hora} horas e ${this.min} minutos.`);
+  },
 };
 
 //vida, força
@@ -79,22 +78,22 @@ function rolagem1d6() {
 }
 
 function umEnem() {
-  console.log("Você se dirige aos policiais e tenta usar seu charme e simpatia para obter informações, você precisa de 10 pontos de carisma para passar.");
-  rolagem = rolagem1d6()
-  console.log(`O dado rolou: ${rolagem}`)
-  let rolagemPC = rolagem + status.carisma
+  console.log(
+    "Você se dirige aos policiais e tenta usar seu charme e simpatia para obter informações, você precisa de 10 pontos de carisma para passar."
+  );
+  rolagem = rolagem1d6();
+  console.log(`O dado rolou: ${rolagem}`);
+  let rolagemPC = rolagem + status.carisma;
   console.log(`Juntando com o seu carisma o valor é ${rolagemPC}`);
   if (rolagem >= 10) {
-    console.log('Os policiais caem no seu papo e falam ')
+    console.log("Os policiais caem no seu papo e falam ");
   } else {
-    console.log('Os policiais não caem')
+    console.log("Os policiais não caem");
   }
-  console.log()
-  status.maisMinutos(20)
+  console.log();
+  status.maisMinutos(20);
 }
 function tresEnem(escolha) {
-  
-
   console.log(
     "A Ordem é ocupada, você vai precisar tirar 7 de sorte para conseguir falar com eles."
   );
@@ -187,8 +186,13 @@ console.log(`Sua vida: ${status.vida}. Se sua vida zerar, você morre. Você res
 console.log(`Seu carisma: ${status.carisma}. Seu carisma te ajuda a enganar e encantar pessoas.`);
 enter = prompt();
 
-let nomedefinido = prompt("Agora, só falta me dizer o nome do seu agente: ");
+let nomedefinido = prompt("Agora, o nome do seu agente: ");
 status.nome = nomedefinido;
+console.log("Escolha sua arma: ")
+console.log("[1] - Arma de fogo")
+console.log("[2] - Katana")
+
+let arma = prompt("")
 console.clear()
 */
 /*
@@ -318,30 +322,30 @@ status.maisHora(2);
 
 */
 function TardeEnem() {
-      status.maisHora(2)
-      console.log(
-        `Você se dirige até a Escola Nostradamus de Ensino Médio, abreviada para ENEM. Se passam duas horas.`
-      );
-    console.log();
-    enter = prompt()
-      console.clear();
-      status.mostrarRelogio()
-      console.log();
-      console.log(
-        "Você se vê diante de uma escola que foi carbonizada. Há alguns policiais na frente, o que você quer fazer?"
-      );
-    console.log("1 - Vá falar com os policiais");
-      console.log("2 - Tente entrar no escondido");
-    console.log("3 - Ligue para a Ordem e pergunte sobre mais informações");
-    console.log()
-    let escolha = prompt("Sua escolha: ");
-    while (escolha != 1 && escolha != 2 && escolha != 3){
-        console.log('A escolha não é válida, digite novamente.')
-        escolha = +prompt("Sua escolha: ");
-  } 
-  
+  status.maisHora(2);
+  console.log(
+    `Você se dirige até a Escola Nostradamus de Ensino Médio, abreviada para ENEM. Se passam duas horas.`
+  );
+  console.log();
+  enter = prompt();
+  console.clear();
+  status.mostrarRelogio();
+  console.log();
+  console.log(
+    "Você se vê diante de uma escola que foi carbonizada. Há alguns policiais na frente, o que você quer fazer?"
+  );
+  console.log("1 - Vá falar com os policiais");
+  console.log("2 - Tente entrar no escondido");
+  console.log("3 - Ligue para a Ordem e pergunte sobre mais informações");
+  console.log();
+  let escolha = prompt("Sua escolha: ");
+  while (escolha != 1 && escolha != 2 && escolha != 3) {
+    console.log("A escolha não é válida, digite novamente.");
+    escolha = +prompt("Sua escolha: ");
+  }
+
   if (escolha == 1) {
-    umEnem()
+    umEnem();
     console.log("O que vai fazer agora? ");
     console.log("2 - Tente entrar no escondido");
     console.log("3 - Ligue para a Ordem e pergunte sobre mais informações");
@@ -352,10 +356,10 @@ function TardeEnem() {
     }
     //else se entrar direto, n colocar dentro de um if
     if (escolha2 == 3) {
-      tresEnem()
+      tresEnem();
       console.log("O que vai fazer agora? ");
-      console.log("2 - Tente entrar no escondido")
-      console.log()
+      console.log("2 - Tente entrar no escondido");
+      console.log();
       escolha3 = +prompt("Sua escolha: ");
       while (escolha3 != 2) {
         console.log("A escolha não é válida, digite novamente.");
@@ -363,7 +367,7 @@ function TardeEnem() {
       }
     }
   } else if (escolha == 3) {
-    tresEnem()
+    tresEnem();
     console.log("O que vai fazer agora? ");
     console.log("1 - Vá falar com os policiais");
     console.log("2 - Tente entrar no escondido");
@@ -373,53 +377,109 @@ function TardeEnem() {
       escolha2 = +prompt("Sua escolha: ");
     }
     if (escolha2 == 1) {
-      umEnem()
+      umEnem();
       console.log("O que vai fazer agora? ");
-      console.log("2 - Tente entrar no escondido")
-      console.log()
+      console.log("2 - Tente entrar no escondido");
+      console.log();
       escolha3 = +prompt("Sua escolha: ");
       while (escolha3 != 2) {
         console.log("A escolha não é válida, digite novamente.");
         escolha3 = +prompt("Sua escolha: ");
       }
-
     }
-  } 
+  }
 
-    console.log('Você entra na escola atravês de uma cerca quebrada, ao adentrar o espaço você percebe um barulho estranho vindo de uma das salas de aula');
+  console.log(
+    "Você entra na escola atravês de uma cerca quebrada, ao adentrar o espaço você percebe um barulho estranho vindo de uma das salas de aula"
+  );
+  console.log();
+  console.log("Você prefere seguir o som ou investigar o local?");
+  console.log("[1] - Seguir o som");
+  console.log("[2] - Investigar o local");
+  let escol = prompt("Sua escolha: ");
+  while (escol != 1 && escol != 2) {
+    console.log("A escolha não é válida, digite novamente.");
+    escol = +prompt("Sua escolha: ");
+  }
+  if (escol == 2) {
+    //sorte??? - Acha algo a mais, um caderno??
+    //acha jornal antigo da escola sobre desaparecimento de alunas
     console.log();
-    console.log('Você prefere seguir o som ou investigar o local?');
-    console.log('[1] - Seguir o som');
-    console.log('[2] - Investigar o local')
-    let escol = prompt('Sua escolha: ');
-    while (escol != 1 && escol != 2) {
-        console.log("A escolha não é válida, digite novamente.");
-        escol = +prompt("Sua escolha: ");
+    //agora o barulho fica mais forte
+    //você se dirge atrá dele
+  }
+  console.log(
+    "Você se vê diante de um zumbi de sangue, por ser a primeira vez que você está diante dessa criatura, você perde 5 de sanidade"
+  );
+  status.perderSanidade(5);
+  console.log();
+  console.log("Agora você está frente a um combate.");
+  let vidazumbi = 25;
+  do {
+    let danoDoZumbi1d12 = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+    let checar = status.perderVida(danoDoZumbi1d12);
+
+    console.log(
+      `O zumbi te ataca e você perde ${danoDoZumbi1d12} pontos de vida`
+    );
+    if (checar) {
+      //colocar para reiniciar o jogo
+      return;
     }
-    if (escol == 2) {
-      //sorte??? - Acha algo a mais, um caderno??
-      //acha jornal antigo da escola sobre desaparecimento de alunas
-      console.log()
-      //agora o barulho fica mais forte
-      //você se dirge atrá dele
-    }
-  console.log('Você se vê diante de um zumbi de sangue, por ser a primeira vez que você está diante dessa criatura, você perde 5 de sanidade');
-  status.perderSanidade(5)
-  console.log()
-  let danoDoZumbi = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-  status.perderVida(danoDoZumbi)
-  console.log()
+    console.log(
+      `Você ataca o zumbi com sua arma, vamos rolar os dados para ver seu dano `
+    );
+    let danoarma = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+    vidazumbi -= danoarma;
+    console.log(`Você causa ${danoarma} de dano`);
+  } while (vidazumbi > 0);
+  //luta, com quê?????
+  console.log(`Parabéns ${status.nome}, você venceu um zumbi de sangue`);
+  enter = prompt();
+  console.log(
+    `Você segue em frente e adentra mais a escola, tem dois caminhos a sua frente, qual você segue?`
+  );
+  console.log(`[1] - Direita`);
+  console.log(`[2] - Esquerda`);
+  console.log();
+  escolha = +prompt(`Sua escolha: `);
+
+  if (escolha == 1) {
+    console.log(
+      `Você segue a direita e encontra um esconderijo na biblioteca, ao entrar mais e mais fundo você percebe que tem uma pessoa ali`
+    );
+    console.log(
+      `Você se aproxima e vê um garoto aparentemente assustado preso no local`
+    );
+    //posso fazer escolhas aqui tbm
+    console.log(
+      `Ao perguntar como o garoto foi parar ali ele, ainda assustado, explica: `
+    );
+    console.log(
+      '"Desconfiei que um dos meus professores estavam envolvidos no dasaparecimentos de estudantes, então o segui após a aula, vi ele realizando rituais estranhos no vestiário da escola, bem assustador, e todas as outras pessoas que sumiram estavam com ele lá mas pareciam estar em um transe"'
+    );
+  }
+
+  console.log("Você se dirige ao ");
+  console.log(`[1] - Questionar sobre os estudantes`);
+  console.log(`[2] - Atacar`);
+  escolha = +prompt('Sua escolha: ');
+
+  if (escolha == 1){
+//explicar coisas
+  }
+  //briga
+
+
+}
+
+function noite() {
+  console.log('vc chegou em casa')
+  status.mostrarRelogio()
   
-//perda de sanidade
-    //luta, com quê?????
-
-
-
-  //Fazer a escolha dois aqui no geral
-
- }
+}
 //manha()
-TardeEnem()
+TardeEnem();
 
 /*
 Continuação do código: Vai até a escola, luta com dois zumbis de sangue, perde sanidae
